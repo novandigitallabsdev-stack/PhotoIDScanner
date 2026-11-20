@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhotoID Scanner For Hotels & Lodges</title>
+  <meta name="description" content="PhotoID Scanner For Hotels & Lodges - Fast, secure guest ID scanning and digital register management for hotels, lodges, and resorts.">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(15, 23, 42, 0.05);
+      --radius-xl: 20px;
+      --radius-lg: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 50% 0%, #edf2f9 0%, #f8fafc 40%, #eef2f6 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 36px 20px 48px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* =========================================
+       1. TOP CENTER: LOGO & TITLE
+       ========================================= */
+    .top-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .logo-img {
+      width: 88px;
+      height: 88px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+      border: 2px solid #ffffff;
+      background: #ffffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo-img:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.22);
+    }
+
+    .header-title {
+      font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+
+    /* =========================================
+       2. CENTER: FEATURED GRAPHIC
+       ========================================= */
+    .featured-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .featured-card {
+      width: 100%;
+      max-width: 920px;
+      background: var(--bg-card);
+      padding: 10px;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.18);
+    }
+
+    .featured-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-lg);
+      object-fit: contain;
+    }
+
+    /* =========================================
+       3. BOTTOM: 2 PARTS IN A SINGLE ROW AS BUTTONS
+       ========================================= */
+    .bottom-row {
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin-top: 4px;
+    }
+
+    .action-btn {
+      flex: 1;
+      max-width: 340px;
+      min-height: 70px;
+      background-color: #ffffff;
+      color: #0f172a;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 14px 24px;
+      border-radius: 16px;
+      border: 1.5px solid #e2e8f0;
+      box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      gap: 16px;
+    }
+
+    .action-btn:hover {
+      background-color: #ffffff;
+      transform: translateY(-3px);
+    }
+
+    .action-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Left Part: YouTube Button */
+    .youtube-btn:hover {
+      border-color: #fca5a5;
+      box-shadow: 0 14px 28px -4px rgba(239, 68, 68, 0.2), 0 0 0 1px rgba(239, 68, 68, 0.2);
+    }
+
+    .youtube-logo-svg {
+      width: 36px;
+      height: 26px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .action-btn:hover .youtube-logo-svg {
+      transform: scale(1.08);
+    }
+
+    /* Right Part: Google Play Button */
+    .play-btn:hover {
+      border-color: #93c5fd;
+      box-shadow: 0 14px 28px -4px rgba(59, 130, 246, 0.2), 0 0 0 1px rgba(59, 130, 246, 0.2);
+    }
+
+    .play-logo-svg {
+      width: 30px;
+      height: 33px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .action-btn:hover .play-logo-svg {
+      transform: scale(1.08);
+    }
+
+    /* Text Formatting */
+    .btn-text-group {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      text-align: left;
+    }
+
+    .btn-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 3px;
+    }
+
+    .btn-main {
+      font-size: 1.28rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 620px) {
+      .bottom-row {
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+      }
+
+      .action-btn {
+        width: 100%;
+        max-width: 340px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- 1. TOP CENTER: LOGO & TITLE -->
+    <header class="top-header">
+      <div class="logo-wrapper">
+        <img src="logo.jpg" alt="PhotoID Scanner Logo" class="logo-img">
+      </div>
+      <h1 class="header-title">PhotoID Scanner For Hotels & Lodges</h1>
+    </header>
+
+    <!-- 2. CENTER: FEATURED GRAPHIC -->
+    <section class="featured-section">
+      <div class="featured-card">
+        <img src="Featured Graphic.jpg" alt="PhotoID Scanner Featured Graphic" class="featured-img">
+      </div>
+    </section>
+
+    <!-- 3. BOTTOM: DIVIDED INTO 2 PARTS IN A SINGLE ROW AS BUTTONS -->
+    <section class="bottom-row">
+
+      <!-- LEFT PART: YOUTUBE VIDEO BUTTON -->
+      <a href="https://youtube.com/shorts/fUn67163xFg" target="_blank" rel="noopener noreferrer" class="action-btn youtube-btn" title="Watch App in Real Action on YouTube">
+        <!-- Proper Official YouTube Logo SVG -->
+        <svg class="youtube-logo-svg" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27.438 3.092c-.322-1.21-1.272-2.16-2.482-2.483C22.75 0 14 0 14 0S5.25 0 3.044.609C1.834.932.884 1.882.562 3.092 0 5.308 0 9.9 0 9.9s0 4.592.562 6.808c.322 1.21 1.272 2.16 2.482 2.483C5.25 19.8 14 19.8 14 19.8s8.75 0 10.956-.609c1.21-.323 2.16-1.273 2.482-2.483.562-2.216.562-6.808.562-6.808s0-4.592-.562-6.808z" fill="#FF0000"/>
+          <path d="M11.2 14.143V5.657L18.55 9.9 11.2 14.143z" fill="#FFFFFF"/>
+        </svg>
+        <div class="btn-text-group">
+          <span class="btn-sub">SEE IN REAL ACTION</span>
+          <span class="btn-main">Watch on YouTube</span>
+        </div>
+      </a>
+
+      <!-- RIGHT PART: GET IT ON GOOGLE PLAY BUTTON -->
+      <a href="https://play.google.com/store/apps/details?id=com.photoidscanner.lodges" target="_blank" rel="noopener noreferrer" class="action-btn play-btn" title="Get it on Google Play">
+        <!-- Proper Official Google Play Multi-Colored Logo SVG -->
+        <svg class="play-logo-svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4285F4" d="M48.7 24.3C40.6 32.8 36 45.4 36 61.2v389.6c0 15.8 4.6 28.4 12.7 36.9l2.1 1.9 222.8-222.8v-5.2L50.8 22.4l-2.1 1.9z"/>
+          <path fill="#FFBA00" d="M347.8 322.9l-74.2-74.2v-5.4l74.2-74.2 1.7 1 88 50c25.1 14.3 25.1 37.6 0 51.9l-88 50-1.7.9z"/>
+          <path fill="#00E676" d="M273.6 248.7L50.8 471.5c8.2 8.7 21.8 9.8 37.2 1.1l259.8-147.6-74.2-76.3z"/>
+          <path fill="#FF334B" d="M273.6 263.3l74.2-74.2L88 41.5C72.6 32.8 59 33.9 50.8 42.6l222.8 220.7z"/>
+        </svg>
+        <div class="btn-text-group">
+          <span class="btn-sub">GET IT ON</span>
+          <span class="btn-main">Google Play</span>
+        </div>
+      </a>
+
+    </section>
+
+    <footer class="site-footer">
+      <p>© PhotoID Scanner For Hotels & Lodges. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
